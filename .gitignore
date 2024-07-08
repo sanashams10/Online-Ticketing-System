@@ -22,3 +22,53 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<link rel="stylesheet" href="dashboard.css">
+
+
+
+</head>
+    <%
+        HttpSession ss=request.getSession();
+        Object user=ss.getAttribute("user");
+        String username="";
+        if(user!=null)
+        {		
+            username=user.toString();
+        }
+        else
+        {
+            response.sendRedirect("signup.jsp");
+        }
+    %>
+
+    <div class="header">
+        <h2>Welcome, <%=username %></h2>
+        
+    <div class="links">
+		<a href="#">Home</a>
+        <a href="#">TOMORROWLAND 2023 Recap</a>
+        <a href="#">Artist Lineup</a>
+        <a href = "logout.jsp">Logout</a>
+    </div>
+    </div>
+    
+    
+    <div class="landing-page">
+        <h1>TOMORROW<span>LAND</span> 2024</h1>
+        <h2>WHERE DREAMS TURN INTO REALITY</h2>
+    </div>
+  
+    
+<body>
+
+
+</body>
+</html>
